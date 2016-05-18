@@ -1,1 +1,22 @@
-Nico
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'></head>
+<body>
+    <h1>Project Euler: Problem 26</h1>
+I used an algorithm that does what I would do had I had to do it by hand only in Clojure. I wonder if there is any flaw.
+    <pre><code class="clojure" style="tomorrow">
+(defn period-length [b]
+"Calculates the lenth of the period when dividing 1 by b"
+(loop [rems #{10}, next-a 10]
+  (let [next-rem (* 10 (rem next-a b))]
+    (if (rems next-rem)
+      (count rems)
+      (recur (conj rems next-rem) next-rem)))))
+  </code></pre>
+  </body>
+</html>
